@@ -12,7 +12,6 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
 
-// Set your SendGrid API key here
 sgMail.setApiKey(sendgridApiKey);
 
 exports.sendOtpEmail = functions.https.onCall(async (data, context) => {
@@ -1395,7 +1394,7 @@ exports.sendCouponEmail = functions.https.onCall(async (data, context) => {
       <tbody>
       <tr>
       <td align="center" class="kl-text" style="font-size:0px;padding:0px;padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;word-break:break-word;">
-      <div style="font-family:'Inter-Klaviyo-Hosted', Helvetica, Arial, sans-serif;font-size:12px;font-style:Normal;font-weight:400;letter-spacing:0px;line-height:1.5;text-align:center;color:#727272;"><div style="line-height: 150%;"><span style="color: rgb(255, 255, 255); font-family: Cabin, 'Lucida Sans', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-weight: 400; font-style: normal;">No longer want to receive these emails? <a href="grow-kindly.cloco.com.au/unsubscribe?email=${data.email}">unsubscribe</a>.</span><br/><span style="color: rgb(255, 255, 255); font-family: Cabin, 'Lucida Sans', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-weight: 400; font-style: normal;">{{ organization.name }} {{ organization.full_address }}</span></div></div>
+      <div style="font-family:'Inter-Klaviyo-Hosted', Helvetica, Arial, sans-serif;font-size:12px;font-style:Normal;font-weight:400;letter-spacing:0px;line-height:1.5;text-align:center;color:#727272;"><div style="line-height: 150%;"><span style="color: rgb(255, 255, 255); font-family: Cabin, 'Lucida Sans', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-weight: 400; font-style: normal;">No longer want to receive these emails? <a href="grow-kindly.cloco.com.au/unsubscribe?email=${data.email}">unsubscribe</a>.</span><br/><span style="color: rgb(255, 255, 255); font-family: Cabin, 'Lucida Sans', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-weight: 400; font-style: normal;">Grow Kindly 5B/8 Station St, Moorabbin VIC 3189, Moorabbin VIC 3189, Australia</span></div></div>
       </td>
       </tr>
       </tbody>
@@ -1452,8 +1451,6 @@ exports.sendCouponEmail = functions.https.onCall(async (data, context) => {
       </html>
         `,
     };
-
-    // <a href="grow-kindly.cloco.com.au/unsubscribe?email=${data.email}">unsubscribe</a>
 
     await sgMail.send(msg);
 
